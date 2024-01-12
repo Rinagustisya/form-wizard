@@ -15,7 +15,12 @@ class DataPendudukController extends Controller
      */
     public function index()
     {
-        //
+        $provinces = Province::all();
+        $regencies = Regency::all();
+        $districts = District::all();
+        $villages = Village::all();
+
+        return view('welcome',compact('provinces', 'regencies', 'districts', 'villages'));
     }
 
     /**

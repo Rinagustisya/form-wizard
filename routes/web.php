@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\DataPendudukController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [DataPendudukController::class, 'index'])->name('form');
