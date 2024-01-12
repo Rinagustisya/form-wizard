@@ -30,25 +30,25 @@
                                     <div class="row" style="padding-bottom: 10px;">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="">Nama Lengkap</label>
+                                                <label for="">Nama Lengkap <small style="color: red;">**Wajib Diisi</small></label>
                                                 <input type="text" class="form-control" placeholder="Nama Lengkap" name="" id="">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="">No. Telp Aktif</label>
+                                                <label for="">No. Telp Aktif <small style="color: red;">**Wajib Diisi</small></label>
                                                 <input type="number" class="form-control" placeholder="085****" name="" id="">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="">NIK (Sesuai KTP)</label>
+                                                <label for="">NIK (Sesuai KTP) <small style="color: red;">**Wajib Diisi</small></label>
                                                 <input type="number" class="form-control" placeholder="NIK Sesuai KTP" name="" id="">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="">Provinsi</label>
+                                                <label for="">Provinsi <small style="color: red;">**Wajib Diisi</small></label>
                                                 <select name="provinsi"  class="form-control">
                                                     <option value="">Pilih Provinsi</option>
                                                     @foreach ($provinces as $provinsi )
@@ -61,7 +61,7 @@
                                     <div class="row" style="padding-bottom: 10px;">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="">Kabupaten/Kota</label>
+                                                <label for="">Kabupaten/Kota <small style="color: red;">**Wajib Diisi</small></label>
                                                 <select name="provinsi" class="form-control">
                                                     <option value="">Pilih Kabupaten</option>
                                                     @foreach ($districts as $kabupaten )
@@ -72,7 +72,7 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="">Kecamatan</label>
+                                                <label for="">Kecamatan <small style="color: red;">**Wajib Diisi</small></label>
                                                 <select name="kecamatan" class="form-control">
                                                     <option value="">Pilih Kecamatan</option>
                                                     @foreach ($regencies as $kecamatan )
@@ -83,7 +83,7 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="">Kelurahan</label>
+                                                <label for="">Kelurahan <small style="color: red;">**Wajib Diisi</small></label>
                                                 <select name="kecamatan" class="form-control">
                                                     <option value="">Pilih Kelurahan</option>
                                                     @foreach ($villages as $desa )
@@ -94,7 +94,7 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="">Alamat Lengkap</label>
+                                                <label for="">Alamat Lengkap <small style="color: red;">**Wajib Diisi</small></label>
                                                 <input type="text" class="form-control" placeholder="Alamat Lengkap Domisili" name="" id="">
                                             </div>
                                         </div>
@@ -102,7 +102,7 @@
                                     <div class="row" style="padding-bottom: 10px;">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="">Tempat Lahir</label>
+                                                <label for="">Tempat Lahir <small style="color: red;">**Wajib Diisi</small></label>
                                                 <select name="tempat_lahir" class="form-control">
                                                     <option value="">Pilih Tempat Lahir</option>
                                                     @foreach ($districts as $kabupaten )
@@ -113,13 +113,13 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="">Tanggal Lahir</label>
+                                                <label for="">Tanggal Lahir <small style="color: red;">**Wajib Diisi</small></label>
                                                 <input type="date" class="form-control" name="" id="">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="">Jenis Kelamin</label>
+                                                <label for="">Jenis Kelamin <small style="color: red;">**Wajib Diisi</small></label>
                                                 <select name="jenis_kelamin" class="form-control">
                                                     <option value="L">Laki-Laki</option>
                                                     <option value="P">Perempuan</option>
@@ -138,7 +138,82 @@
                         </div>
 
                     <!-- step 2 -->
+                    <div class="step-two">
+                            <div class="card">
+                                <div class="card-header bg-danger text-white">Tahap 2 | Data Keluarga</div>
+                                <div class="card-body">
+                                    <div class="row" style="padding-bottom: 10px;">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Nama Ayah <small style="color: red;">**Wajib Diisi</small></label>
+                                                <input type="text" class="form-control" placeholder="Nama Ayah" name="" id="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Nama Ibu <small style="color: red;">**Wajib Diisi</small></label>
+                                                <input type="text" class="form-control" placeholder="Nama Ibu" name="" id="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     
+                    <!-- step 3 -->
+                    <div class="step-three">
+                            <div class="card">
+                                <div class="card-header bg-danger text-white">Tahap 3 | Data Lainnya</div>
+                                <div class="card-body">
+                                    <div class="row" style="padding-bottom: 10px;">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="">Upload Foto Ktp <small style="color: red;">**Wajib Diisi</small></label>
+                                                <input type="file" class="form-control" name="" id="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- step 4 -->
+                        <div class="step-four">
+                            <div class="card">
+                                <div class="card-header bg-danger text-white">Tahap 4 | Data Akun</div>
+                                <div class="card-body">
+                                    <div class="row" style="padding-bottom: 10px;">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="">Username <small style="color: red;">**Wajib Diisi</small></label>
+                                                <input type="text" class="form-control" name="" id="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="">Email <small style="color: red;">**Wajib Diisi</small></label>
+                                                <input type="email" class="form-control" name="" id="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="">Kode ID <small style="color: red;">**Wajib Diisi</small></label>
+                                                <input type="number" class="form-control" name="" id="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end -->
+
+                        <!-- button -->
+                        <div class="action-button d-flex justify-content-between bg-white pt-2 pb-2">
+                            <div></div>
+                            <button type="button" class="btn btn-md btn-secondary">Back</button>
+                            <button type="button" class="btn btn-sm btn-success">Simpan & Lanjutkan</button>
+                            <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                        </div>
                     </form>
                 </div>
             </div>
