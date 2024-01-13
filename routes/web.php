@@ -16,4 +16,6 @@ use App\Http\Controllers\DataPendudukController;
 
 Route::get('/', [DataPendudukController::class, 'index'])->name('form');
 Route::post('/getKabupaten', [DataPendudukController::class, 'getKabupaten'])->name('getKabupaten');
-Route::get('/getKabupaten', [DataPendudukController::class, 'getKabupaten'])->name('getKabupaten');
+Route::post('/getKecamatan', [DataPendudukController::class, 'getKecamatan'])->name('getKecamatan');
+Route::post('/getDesa', [DataPendudukController::class, 'getDesa'])->name('getDesa');
+

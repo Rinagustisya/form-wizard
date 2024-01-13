@@ -83,7 +83,7 @@ class MultiStepForm extends Component
                 'tempat_lahir' => 'required',
                 'tgl_lahir' => 'required',
                 'jenis_kelamin' => 'required',
-                'no_paspor' => 'required',
+                'no_paspor' => 'nullable',
             ]);
 
         } elseif ($this->currentStep == 2) {

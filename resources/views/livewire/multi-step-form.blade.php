@@ -63,7 +63,6 @@
                                             <div class="form-group">
                                                 <label for="">Kabupaten/Kota <small style="color: red;">**Wajib Diisi</small></label>
                                                 <select class="form-control" wire:model="kabupaten" id="kabupaten">
-                                                    <option value="">Pilih Kabupaten</option>
                                                 </select>
                                                 <span class="text-danger">
                                                     @error('kabupaten')
@@ -76,10 +75,6 @@
                                             <div class="form-group">
                                                 <label for="">Kecamatan <small style="color: red;">**Wajib Diisi</small></label>
                                                 <select class="form-control" wire:model="kecamatan" id="kecamatan">
-                                                    <option value="">Pilih Kecamatan</option>
-                                                    @foreach ($regencies as $kecamatan )
-                                                        <option>{{$kecamatan->name}}</option>
-                                                    @endforeach
                                                 </select>
                                                 <span class="text-danger">
                                                     @error('kecamatan')
@@ -92,10 +87,6 @@
                                             <div class="form-group">
                                                 <label for="">Kelurahan <small style="color: red;">**Wajib Diisi</small></label>
                                                 <select class="form-control" wire:model="kelurahan" id="desa">
-                                                    <option value="">Pilih Kelurahan</option>
-                                                    @foreach ($villages as $desa )
-                                                        <option>{{$desa->name}}</option>
-                                                    @endforeach
                                                 </select>
                                                 <span class="text-danger">
                                                     @error('kelurahan')
@@ -331,6 +322,50 @@
                                 })
                             });
 
+                            $(function() {
+                                $('#kabupaten').on('change',function() {
+                                    let id_kabupaten = $('#kabupaten').val();
+
+                                    // console.log(id_provinsi);
+                                    $.ajax({
+                                        type : 'POST',
+                                        url : "{{ route('getKecamatan') }}",
+                                        data: { id_kabupaten: id_kabupaten },
+                                        cache : false,
+                                        dataType: 'html',
+                                        success: function(msg) {
+                                            $('#kecamatan').html(msg);
+                                            $('#desa').html('');
+                                        },
+
+                                        error: function(data) {
+                                            console.log('error:', data)
+                                        },
+                                    })
+                                })
+                            });
+
+                            $(function() {
+                                $('#kecamatan').on('change',function() {
+                                    let id_kecamatan = $('#kecamatan').val();
+
+                                    // console.log(id_provinsi);
+                                    $.ajax({
+                                        type : 'POST',
+                                        url : "{{ route('getDesa') }}",
+                                        data: { id_kecamatan: id_kecamatan },
+                                        cache : false,
+                                        dataType: 'html',
+                                        success: function(msg) {
+                                            $('#desa').html(msg);
+                                        },
+
+                                        error: function(data) {
+                                            console.log('error:', data)
+                                        },
+                                    })
+                                })
+                            });
 
                         });
                     </script>

@@ -29,9 +29,36 @@ class DataPendudukController extends Controller
 
         $kabupaten = Regency::where('province_id', $id_provinsi)->get();
 
+        $option = "<option>Pilih Kabupaten...</option>";
         foreach($kabupaten as $kab) {
-            echo "<option value='$kab->id'>$kab->name</option>";
+            $option.= "<option value='$kab->id'>$kab->name</option>";
         }
+        echo $option;
+    }
+
+    public function getKecamatan(request $request){
+        $id_kabupaten = $request->id_kabupaten;
+
+        $kecamatan = District::where('regency_id', $id_kabupaten)->get();
+
+        $option = "<option>Pilih Kecamatan...</option>";
+        foreach($kecamatan as $kec) {
+            $option.= "<option value='$kec->id'>$kec->name</option>";
+        }
+
+        echo $option;
+    }
+
+    public function getDesa(request $request){
+        $id_kecamatan = $request->id_kecamatan;
+
+        $desa = Village::where('district_id', $id_kecamatan)->get();
+
+        $option = "<option>Pilih Kelurahan...</option>";
+        foreach($desa as $des) {
+            $option .= "<option value='$des->id'>$des->name</option>";
+        }
+        echo $option;
     }
     /**
      * Show the form for creating a new resource.
