@@ -9,7 +9,7 @@ use App\Models\District;
 use App\Models\Village;
 use App\Models\DataPenduduk;
 use Livewire\WithFileUploads;
-
+use Alert;
 class MultiStepForm extends Component
 {
     use WithFileUploads;
@@ -52,6 +52,7 @@ class MultiStepForm extends Component
     }
 
     public function decreaseStep(){
+        $this->resetErrorBag(); 
         $this->currentStep--;
         if($this->currentStep < 1){
             $this->currentStep = 1;
@@ -59,9 +60,84 @@ class MultiStepForm extends Component
     }
 
     public function increaseStep(){
+        $this->resetErrorBag();
+        $this->validateData();
         $this->currentStep++;
         if($this->currentStep > $this->totalSteps){
             $this->currentStep = $this->totalSteps;
         }
+    }
+
+    public function validateData(){
+        if ($this->currentStep == 1) {
+            $this->validate([
+                'nama_lengkap' => 'required|string',
+                'no_telp' => 'required|digits:12',
+                'nik' => 'required|digits:16',
+                'provinsi' => 'required',
+                'kabupaten' => 'required',
+                'kecamatan' => 'required',
+                'kelurahan' => 'required',
+                'alamat' => 'required|string',
+                'tempat_lahir' => 'required',
+                'tgl_lahir' => 'required',
+                'jenis_kelamin' => 'required',
+                'no_paspor' => 'required',
+            ]);
+
+        } elseif ($this->currentStep == 2) {
+            $this->validate([
+                'nama_ayah' => 'required|string',
+                'nama_ibu' => 'required|string'
+            ]);
+
+        } elseif ($this->currentStep == 3){
+            $this->validate([
+                'foto' => 'required|mimes:png,jpg,jpeg'
+            ]);
+        }
+    
+    }
+
+    public function register() {
+        $this->resetErrorBag();
+        if($this->currentStep == 4) {
+            $this->validate([
+                'username' => 'required|string',
+                'email' => 'required|email|unique:data_penduduks',
+                'kode_ID' => 'required'
+            ]);
+        }
+
+        $filename = 'foto'.$this->foto->getClientOriginalName();
+        $upload_foto = $this->foto->storeAs('data_foto', $filename);
+
+        if ($upload_foto) {
+            $values = array (
+                'nama_lengkap' => $this->nama_lengkap,
+                'no_telp' => $this->no_telp,
+                'nik' => $this->nik,
+                'provinsi' => $this->provinsi,
+                'kabupaten' => $this->kabupaten,
+                'kecamatan' => $this->kecamatan,
+                'kelurahan' => $this->kelurahan,
+                'alamat' => $this->alamat,
+                'tempat_lahir' => $this->tempat_lahir,
+                'tgl_lahir' => $this->tgl_lahir,
+                'jenis_kelamin' => $this->jenis_kelamin,
+                'no_paspor' => $this->no_paspor,
+                'nama_ayah' => $this->nama_ayah,
+                'nama_ibu' => $this->nama_ibu,
+                'username' => $this->username,
+                'email' => $this->email,
+                'kode_ID' => $this->kode_ID,
+                'foto' => $filename,
+            );
+        }
+
+        DataPenduduk::create($values);
+        Alert::success('Success!', 'Data Berhasil Dikirim!');
+        $this->reset();
+        $this->currentStep = 1;
     }
 }
