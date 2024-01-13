@@ -23,6 +23,10 @@ class DataPenduduk extends Model
         'kelurahan',
         'nama_ayah',
         'nama_ibu',
-        'foto'
+        'foto',
+        'username',
+        'email',
+        'password',
+        'kode_ID'
     ];
 }

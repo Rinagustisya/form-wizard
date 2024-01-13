@@ -20,7 +20,7 @@ class DataPendudukController extends Controller
         $districts = District::all();
         $villages = Village::all();
 
-        return view('welcome',compact('provinces', 'regencies', 'districts', 'villages'));
+        return view('register',compact('provinces', 'regencies', 'districts', 'villages'));
     }
 
     /**
