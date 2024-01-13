@@ -44,10 +44,10 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="">Provinsi <small style="color: red;">**Wajib Diisi</small></label>
-                                                <select name="provinsi"  class="form-control" wire:model="provinsi">
+                                                <select  class="form-control" wire:model="provinsi" id="provinsi">
                                                     <option value="">Pilih Provinsi</option>
                                                     @foreach ($provinces as $provinsi )
-                                                        <option>{{$provinsi->name}}</option>
+                                                        <option value="{{ $provinsi->id }}">{{$provinsi->name}}</option>
                                                     @endforeach
                                                 </select>
                                                 <span class="text-danger">
@@ -301,3 +301,24 @@
                         </div>
                     </form>
                 </div>
+
+                <!-- Javascript -->
+                @push('ajax')
+                    <script>
+                        $(function () {
+                            $.ajaxSetup({
+                                headers : { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')  }
+                            });
+
+                            $(function() {
+                                $('#provinsi').on('change',function() {
+                                    let id_provinsi = $('#provinsi').val();
+
+                                    console.log(id);
+                                })
+                            });
+
+
+                        });
+                    </script>
+                @endpush
