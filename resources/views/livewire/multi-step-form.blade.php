@@ -288,11 +288,11 @@
                             @endif
 
                             @if ($currentStep == 2 || $currentStep == 3 || $currentStep == 4)
-                            <button type="button" class="btn btn-md btn-secondary">Back</button>
+                            <button type="button" class="btn btn-md btn-secondary" wire:click="decreaseStep()">Back</button>
                             @endif
 
                             @if ($currentStep == 1 || $currentStep == 2 || $currentStep == 3)
-                            <button type="button" class="btn btn-sm btn-success">Simpan & Lanjutkan</button>
+                            <button type="button" class="btn btn-sm btn-success" wire:click="increaseStep()">Simpan & Lanjutkan</button>
                             @endif
 
                             @if ($currentStep == 4)

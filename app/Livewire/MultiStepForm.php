@@ -50,4 +50,18 @@ class MultiStepForm extends Component
 
         return view('livewire.multi-step-form',compact('provinces', 'regencies', 'districts', 'villages'));
     }
+
+    public function decreaseStep(){
+        $this->currentStep--;
+        if($this->currentStep < 1){
+            $this->currentStep = 1;
+        }
+    }
+
+    public function increaseStep(){
+        $this->currentStep++;
+        if($this->currentStep > $this->totalSteps){
+            $this->currentStep = $this->totalSteps;
+        }
+    }
 }
