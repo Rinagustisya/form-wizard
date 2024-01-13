@@ -9,6 +9,7 @@ use App\Models\District;
 use App\Models\Village;
 use App\Models\DataPenduduk;
 use Livewire\WithFileUploads;
+use Illuminate\Http\Request;
 use Alert;
 class MultiStepForm extends Component
 {
@@ -140,4 +141,6 @@ class MultiStepForm extends Component
         $this->reset();
         $this->currentStep = 1;
     }
+
+    
 }

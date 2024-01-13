@@ -43,11 +43,11 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="">Provinsi <small style="color: red;">**Wajib Diisi</small></label>
+                                                <label for="provinsi">Provinsi <small style="color: red;">**Wajib Diisi</small></label>
                                                 <select  class="form-control" wire:model="provinsi" id="provinsi">
                                                     <option value="">Pilih Provinsi</option>
                                                     @foreach ($provinces as $provinsi )
-                                                        <option value="{{ $provinsi->id }}">{{$provinsi->name}}</option>
+                                                        <option value="{{$provinsi->id}}">{{$provinsi->name}}</option>
                                                     @endforeach
                                                 </select>
                                                 <span class="text-danger">
@@ -62,11 +62,8 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="">Kabupaten/Kota <small style="color: red;">**Wajib Diisi</small></label>
-                                                <select class="form-control" wire:model="kabupaten">
+                                                <select class="form-control" wire:model="kabupaten" id="kabupaten">
                                                     <option value="">Pilih Kabupaten</option>
-                                                    @foreach ($districts as $kabupaten )
-                                                        <option>{{$kabupaten->name}}</option>
-                                                    @endforeach
                                                 </select>
                                                 <span class="text-danger">
                                                     @error('kabupaten')
@@ -78,7 +75,7 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="">Kecamatan <small style="color: red;">**Wajib Diisi</small></label>
-                                                <select class="form-control" wire:model="kecamatan">
+                                                <select class="form-control" wire:model="kecamatan" id="kecamatan">
                                                     <option value="">Pilih Kecamatan</option>
                                                     @foreach ($regencies as $kecamatan )
                                                         <option>{{$kecamatan->name}}</option>
@@ -94,7 +91,7 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="">Kelurahan <small style="color: red;">**Wajib Diisi</small></label>
-                                                <select class="form-control" wire:model="kelurahan">
+                                                <select class="form-control" wire:model="kelurahan" id="desa">
                                                     <option value="">Pilih Kelurahan</option>
                                                     @foreach ($villages as $desa )
                                                         <option>{{$desa->name}}</option>
@@ -314,7 +311,23 @@
                                 $('#provinsi').on('change',function() {
                                     let id_provinsi = $('#provinsi').val();
 
-                                    console.log(id);
+                                    // console.log(id_provinsi);
+                                    $.ajax({
+                                        type : 'POST',
+                                        url : "{{ route('getKabupaten') }}",
+                                        data: { id_provinsi: id_provinsi },
+                                        cache : false,
+                                        dataType: 'html',
+                                        success: function(msg) {
+                                            $('#kabupaten').html(msg);
+                                            $('#kecamatan').html('');
+                                            $('#desa').html('');
+                                        },
+
+                                        error: function(data) {
+                                            console.log('error:', data)
+                                        },
+                                    })
                                 })
                             });
 

@@ -7,6 +7,7 @@ use App\Models\District;
 use App\Models\Village;
 
 use Illuminate\Http\Request;
+use Termwind\Components\Raw;
 
 class DataPendudukController extends Controller
 {
@@ -23,6 +24,15 @@ class DataPendudukController extends Controller
         return view('register',compact('provinces', 'regencies', 'districts', 'villages'));
     }
 
+    public function getKabupaten(request $request){
+        $id_provinsi = $request->id_provinsi;
+
+        $kabupaten = Regency::where('province_id', $id_provinsi)->get();
+
+        foreach($kabupaten as $kab) {
+            echo "<option value='$kab->id'>$kab->name</option>";
+        }
+    }
     /**
      * Show the form for creating a new resource.
      */
