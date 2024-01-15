@@ -111,12 +111,7 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="">Tempat Lahir <small style="color: red;">**Wajib Diisi</small></label>
-                                                <select class="form-control" wire:model="tempat_lahir">
-                                                    <option value="">Pilih Tempat Lahir</option>
-                                                    @foreach ($districts as $kabupaten )
-                                                        <option>{{$kabupaten->name}}</option>
-                                                    @endforeach
-                                                </select>
+                                                <input type="text" class="form-control" wire:model="tempat_lahir" placeholder="Tempat Lahir">
                                                 <span class="text-danger">
                                                     @error('tempat_lahir')
                                                         {{ $message }}

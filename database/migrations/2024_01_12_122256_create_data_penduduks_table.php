@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('data_penduduks', function (Blueprint $table) {
             $table->id();
             $table->string('nama_lengkap');
-            $table->string('no_paspor');
+            $table->string('no_paspor')->nullable();
             $table->string('no_telp');
             $table->string('nik');
             $table->string('jenis_kelamin');
             $table->string('alamat');
             $table->string('tempat_lahir');
-            $table->string('tgl_lahir');
+            $table->date('tgl_lahir');
             $table->string('provinsi');
             $table->string('kabupaten');
             $table->string('kecamatan');

@@ -138,8 +138,9 @@ class MultiStepForm extends Component
 
         DataPenduduk::create($values);
         Alert::success('Success!', 'Data Berhasil Dikirim!');
-        $this->reset();
-        $this->currentStep = 1;
+        return redirect()->route('form');
+        // $this->reset();
+        // $this->currentStep = 1;
     }
 
     
