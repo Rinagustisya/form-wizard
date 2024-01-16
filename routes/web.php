@@ -24,5 +24,5 @@ Route::post('/getDesa', [DataPendudukController::class, 'getDesa'])->name('getDe
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::view('/dashboard', 'dashboard')->name('dashboard');
 Route::get('/Admin/Monitoring', [AdminController::class, 'index'])->name('admin.monitoring');
-Route::get('/Pengelola/Monitoting', [PengelolaController::class, 'login'])->name('pengelola.monitoring');
+Route::get('/Pengelola/Monitoting', [PengelolaController::class, 'index'])->name('pengelola.monitoring');
 
