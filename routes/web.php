@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataPendudukController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PengelolaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,4 +22,7 @@ Route::post('/getKabupaten', [DataPendudukController::class, 'getKabupaten'])->n
 Route::post('/getKecamatan', [DataPendudukController::class, 'getKecamatan'])->name('getKecamatan');
 Route::post('/getDesa', [DataPendudukController::class, 'getDesa'])->name('getDesa');
 Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::view('/dashboard', 'dashboard')->name('dashboard');
+Route::get('/Admin/Monitoring', [AdminController::class, 'index'])->name('admin.monitoring');
+Route::get('/Pengelola/Monitoting', [PengelolaController::class, 'login'])->name('pengelola.monitoring');
 
