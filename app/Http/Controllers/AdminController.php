@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DataPenduduk;
+use App\Models\Province;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -9,9 +11,16 @@ class AdminController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.monitoring');
+        $search = $request->search;
+        $data = DataPenduduk::select('id', 'nama_lengkap', 'no_telp', 'nik', 'provinsi', 'kabupaten', 'kecamatan', 'kelurahan', 'alamat', 'tempat_lahir', 'tgl_lahir', 'jenis_kelamin')
+                ->when($search, function($query, $search){
+                    return $query->where('provinsi', 'like', "%{$search}%")
+                            ->orWhere('kabupaten', 'like', "%{$search}%");
+                })
+                ->paginate(5);
+        return view('admin.monitoring',['data'=>$data]);
     }
 
     /**

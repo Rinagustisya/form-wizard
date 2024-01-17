@@ -23,6 +23,25 @@
                     <th>Jenis Kelamin</th>
                 </tr>
             </thead>
+            <tbody>
+                <?php $no = $data->firstItem(); ?>
+                @foreach ( $data as $row ) 
+                <tr>
+                    <td>{{ $no++ }}</td>
+                    <td>{{ $row->nama_lengkap }}</td>
+                    <td>{{ $row->no_telp }}</td>
+                    <td>{{ $row->nik }}</td>
+                    <td>{{ $row->provinsi }}</td>
+                    <td>{{ $row->kabupaten }}</td>
+                    <td>{{ $row->kecamatan }}</td>
+                    <td>{{ $row->kelurahan }}</td>
+                    <td>{{ $row->alamat }}</td>
+                    <td>{{ $row->tempat_lahir }}</td>
+                    <td>{{ $row->tgl_lahir }}</td>
+                    <td>{{ $row->jenis_kelamin }}</td>
+                </tr>
+                @endforeach
+            </tbody>
         </table>
     </div>
 </div>

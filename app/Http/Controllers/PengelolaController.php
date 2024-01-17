@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DataPenduduk;
 use Illuminate\Http\Request;
 
 class PengelolaController extends Controller
@@ -9,9 +10,16 @@ class PengelolaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('pengelola.monitoring');
+        $search = $request->search;
+        $data = DataPenduduk::select('id', 'kode_ID', 'nama_lengkap', 'nik')
+                ->when($search, function($query, $search){
+                    return $query->where('kode_ID', 'like', "%{$search}%")
+                            ->orWhere('nik', 'like', "%{$search}%");
+                })
+                ->paginate(5);
+        return view('pengelola.monitoring' ,['data'=>$data]);
     }
 
     /**

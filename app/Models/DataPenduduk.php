@@ -30,4 +30,9 @@ class DataPenduduk extends Model
         'password',
         'kode_ID'
     ];
+
+    public function provinsi()
+    {
+        return $this->belongsTo(Province::class, 'provinsi', 'id_provinsi');
+    }
 }
