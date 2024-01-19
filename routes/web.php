@@ -24,5 +24,7 @@ Route::post('/getDesa', [DataPendudukController::class, 'getDesa'])->name('getDe
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::view('/dashboard', 'dashboard')->name('dashboard');
 Route::get('/Admin/Monitoring', [AdminController::class, 'index'])->name('admin.monitoring');
+Route::get('/Admin/Monitoring/Data-Penduduk-All', [DataPendudukController::class, 'show'])->name('show-data');
 Route::get('/Pengelola/Monitoting', [PengelolaController::class, 'index'])->name('pengelola.monitoring');
+Route::get('/data-gambar/{filename?}', [DataPendudukController::class, 'showGambar'])->name('show.foto');
 

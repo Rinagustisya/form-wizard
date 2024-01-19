@@ -111,7 +111,7 @@ class MultiStepForm extends Component
         }
 
         $filename = 'foto'.$this->foto->getClientOriginalName();
-        $upload_foto = $this->foto->storeAs('data_foto', $filename);
+        $upload_foto = $this->foto->storeAs('public/data_foto', $filename);
 
         if ($upload_foto) {
             $values = array (

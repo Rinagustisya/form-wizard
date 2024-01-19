@@ -14,34 +14,36 @@
         color: gray;
     }
     .navbar {
-  background-color: #fff; /* Warna latar belakang navbar */
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #333; /* Warna teks */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000; /* Menempatkan navbar di atas elemen lain */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Efek shadow untuk memberi kedalaman */
-}
+        background-color: #fff; /* Warna latar belakang navbar */
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #333; /* Warna teks */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000; /* Menempatkan navbar di atas elemen lain */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Efek shadow untuk memberi kedalaman */
+    }
+        .form-card {
+            padding-top: 4rem;
+        }
+        .login-btn a {
+        padding: 10px 20px;
+        background-color: #ff0000; /* Warna background button, bisa disesuaikan */
+        color: #fff; /* Warna teks button */
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        }
 
-.login-btn a {
-  padding: 10px 20px;
-  background-color: #ff0000; /* Warna background button, bisa disesuaikan */
-  color: #fff; /* Warna teks button */
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.login-btn a:hover {
-  background-color: #ff3333; /* Warna saat dihover (merah yang sedikit lebih terang), bisa disesuaikan */
-  color: #fff;
-}
+        .login-btn a:hover {
+        background-color: #ff3333; /* Warna saat dihover (merah yang sedikit lebih terang), bisa disesuaikan */
+        color: #fff;
+        }
     </style>
     @livewireStyles
 </head>
@@ -53,11 +55,18 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="row" style="margin-top: 50px;">
-            <div class="col-md-12">
-                <h1 class="judul">Data Penduduk</h1><hr>
-                @livewire('multi-step-form')
+    
+    <div class="form-card">
+        <div class="container">
+            <div class="row" style="margin-top: 50px;">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 class="judul">Data Penduduk</h1><hr>
+                            @livewire('multi-step-form')
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -27,7 +27,6 @@ class DataPenduduk extends Model
         'foto',
         'username',
         'email',
-        'password',
         'kode_ID'
     ];
 

@@ -17,10 +17,7 @@
                     <th>Kabupaten</th>
                     <th>Kecamatan</th>
                     <th>Kelurahan</th>
-                    <th>Alamat Lengkap</th>
-                    <th>Tempat Lahir</th>
-                    <th>Tanggal Lahir</th>
-                    <th>Jenis Kelamin</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,10 +32,9 @@
                     <td>{{ $row->kabupaten }}</td>
                     <td>{{ $row->kecamatan }}</td>
                     <td>{{ $row->kelurahan }}</td>
-                    <td>{{ $row->alamat }}</td>
-                    <td>{{ $row->tempat_lahir }}</td>
-                    <td>{{ $row->tgl_lahir }}</td>
-                    <td>{{ $row->jenis_kelamin }}</td>
+                    <td>
+                        <x-btn-show :link="route('show-data',['id'=>$row->id])" />
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

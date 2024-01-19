@@ -5,7 +5,7 @@
                     <!-- Step 1 -->
                         <div class="step-one">
                             <div class="card">
-                                <div class="card-header bg-danger text-white">Tahap 1 | Biodata Diri</div>
+                                <div class="card-header bg-secondary text-white">Tahap 1 | Biodata Diri</div>
                                 <div class="card-body">
                                     <div class="row" style="padding-bottom: 10px;">
                                         <div class="col-md-3">
@@ -47,7 +47,7 @@
                                                 <select  class="form-control" wire:model="provinsi" id="provinsi">
                                                     <option value="">Pilih Provinsi</option>
                                                     @foreach ($provinces as $provinsi )
-                                                        <option value="{{$provinsi->id}}">{{$provinsi->name}}</option>
+                                                        <option value="{{$provinsi->name }}">{{$provinsi->name}}</option>
                                                     @endforeach
                                                 </select>
                                                 <span class="text-danger">
@@ -164,7 +164,7 @@
                     @if ($currentStep == 2)
                     <div class="step-two">
                             <div class="card">
-                                <div class="card-header bg-danger text-white">Tahap 2 | Data Keluarga</div>
+                                <div class="card-header bg-secondary text-white">Tahap 2 | Data Keluarga</div>
                                 <div class="card-body">
                                     <div class="row" style="padding-bottom: 10px;">
                                         <div class="col-md-6">
@@ -198,7 +198,7 @@
                     @if ($currentStep == 3)
                     <div class="step-three">
                             <div class="card">
-                                <div class="card-header bg-danger text-white">Tahap 3 | Data Lainnya</div>
+                                <div class="card-header bg-secondary text-white">Tahap 3 | Data Lainnya</div>
                                 <div class="card-body">
                                     <div class="row" style="padding-bottom: 10px;">
                                         <div class="col-md-12">
@@ -221,7 +221,7 @@
                         @if ($currentStep == 4)
                         <div class="step-four">
                             <div class="card">
-                                <div class="card-header bg-danger text-white">Tahap 4 | Data Akun</div>
+                                <div class="card-header bg-secondary text-white">Tahap 4 | Data Akun</div>
                                 <div class="card-body">
                                     <div class="row" style="padding-bottom: 10px;">
                                         <div class="col-md-4">
@@ -295,21 +295,19 @@
 
                             $(function() {
                                 $('#provinsi').on('change',function() {
-                                    let id_provinsi = $('#provinsi').val();
+                                    let provinsiName = $('#provinsi').val();
 
-                                    // console.log(id_provinsi);
                                     $.ajax({
-                                        type : 'POST',
-                                        url : "{{ route('getKabupaten') }}",
-                                        data: { id_provinsi: id_provinsi },
-                                        cache : false,
+                                        type: 'POST',
+                                        url: "{{ route('getKabupaten') }}",
+                                        data: { provinsiName: provinsiName },
+                                        cache: false,
                                         dataType: 'html',
                                         success: function(msg) {
                                             $('#kabupaten').html(msg);
                                             $('#kecamatan').html('');
                                             $('#desa').html('');
                                         },
-
                                         error: function(data) {
                                             console.log('error:', data)
                                         },
@@ -319,20 +317,18 @@
 
                             $(function() {
                                 $('#kabupaten').on('change',function() {
-                                    let id_kabupaten = $('#kabupaten').val();
+                                    let kabupatenName = $('#kabupaten').val();
 
-                                    // console.log(id_provinsi);
                                     $.ajax({
-                                        type : 'POST',
-                                        url : "{{ route('getKecamatan') }}",
-                                        data: { id_kabupaten: id_kabupaten },
-                                        cache : false,
+                                        type: 'POST',
+                                        url: "{{ route('getKecamatan') }}",
+                                        data: { kabupatenName: kabupatenName },
+                                        cache: false,
                                         dataType: 'html',
                                         success: function(msg) {
                                             $('#kecamatan').html(msg);
                                             $('#desa').html('');
                                         },
-
                                         error: function(data) {
                                             console.log('error:', data)
                                         },
@@ -342,26 +338,24 @@
 
                             $(function() {
                                 $('#kecamatan').on('change',function() {
-                                    let id_kecamatan = $('#kecamatan').val();
+                                    let kecamatanName = $('#kecamatan').val();
 
-                                    // console.log(id_provinsi);
                                     $.ajax({
-                                        type : 'POST',
-                                        url : "{{ route('getDesa') }}",
-                                        data: { id_kecamatan: id_kecamatan },
-                                        cache : false,
+                                        type: 'POST',
+                                        url: "{{ route('getDesa') }}",
+                                        data: { kecamatanName: kecamatanName },
+                                        cache: false,
                                         dataType: 'html',
                                         success: function(msg) {
                                             $('#desa').html(msg);
                                         },
-
                                         error: function(data) {
                                             console.log('error:', data)
                                         },
                                     })
                                 })
                             });
-
+                            
                         });
                     </script>
                 @endpush
