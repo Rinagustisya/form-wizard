@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
-class Akun extends Model
+use Illuminate\Foundation\Auth\User as Aunthentificatble;
+use Illuminate\Notifications\Notifiable;
+class Akun extends Aunthentificatble
 {
-    use HasFactory;
+    use Notifiable;
 
     protected $fillable = [
         'nama',

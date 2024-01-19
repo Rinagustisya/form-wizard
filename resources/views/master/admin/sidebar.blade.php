@@ -12,11 +12,15 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
         <!-- link icon -->
+        @can('role','admin')
         <x-nav-item label="Dashboard" icon="fas fa-tachometer-alt" :link="route('dashboard')"/>
         <x-nav-item label="Monitoring" icon="fas fa-desktop" :link="route('admin.monitoring')"/>
+        @endcan
 
+        @can('role','pengelola')
         <x-nav-item label="Dashboard" icon="fas fa-tachometer-alt" :link="route('dashboard')"/>
         <x-nav-item label="Monitoring" icon="fas fa-desktop" :link="route('pengelola.monitoring')"/>
+        @endcan
         <!-- end link icon -->
         </ul>
       </nav>

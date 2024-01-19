@@ -11,7 +11,7 @@
     <style>
     .judul {
         font-family: 'Poppins', sans-serif;
-        color: gray;
+        color: #2C3333;
     }
     .navbar {
         background-color: #fff; /* Warna latar belakang navbar */
@@ -32,7 +32,7 @@
         }
         .login-btn a {
         padding: 10px 20px;
-        background-color: #ff0000; /* Warna background button, bisa disesuaikan */
+        background-color: #555843; /* Warna background button, bisa disesuaikan */
         color: #fff; /* Warna teks button */
         text-decoration: none;
         border-radius: 5px;
@@ -41,7 +41,7 @@
         }
 
         .login-btn a:hover {
-        background-color: #ff3333; /* Warna saat dihover (merah yang sedikit lebih terang), bisa disesuaikan */
+        background-color: #BFD8AF; /* Warna saat dihover (merah yang sedikit lebih terang), bisa disesuaikan */
         color: #fff;
         }
     </style>
@@ -51,7 +51,7 @@
     <!-- navbar disini -->
     <div class="navbar">
         <div class="login-btn">
-            <a href="#">Login</a>
+            <a href="{{ route('admin.login') }}">Login</a>
         </div>
     </div>
 

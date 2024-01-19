@@ -5,7 +5,7 @@
                     <!-- Step 1 -->
                         <div class="step-one">
                             <div class="card">
-                                <div class="card-header bg-secondary text-white">Tahap 1 | Biodata Diri</div>
+                                <div class="card-header text-white" style="background-color: #4F6F52;">Tahap 1 | Biodata Diri</div>
                                 <div class="card-body">
                                     <div class="row" style="padding-bottom: 10px;">
                                         <div class="col-md-3">
@@ -164,7 +164,7 @@
                     @if ($currentStep == 2)
                     <div class="step-two">
                             <div class="card">
-                                <div class="card-header bg-secondary text-white">Tahap 2 | Data Keluarga</div>
+                                <div class="card-header text-white" style="background-color: #4F6F52;">Tahap 2 | Data Keluarga</div>
                                 <div class="card-body">
                                     <div class="row" style="padding-bottom: 10px;">
                                         <div class="col-md-6">
@@ -198,7 +198,7 @@
                     @if ($currentStep == 3)
                     <div class="step-three">
                             <div class="card">
-                                <div class="card-header bg-secondary text-white">Tahap 3 | Data Lainnya</div>
+                                <div class="card-header text-white" style="background-color: #4F6F52;">Tahap 3 | Data Lainnya</div>
                                 <div class="card-body">
                                     <div class="row" style="padding-bottom: 10px;">
                                         <div class="col-md-12">
@@ -221,7 +221,7 @@
                         @if ($currentStep == 4)
                         <div class="step-four">
                             <div class="card">
-                                <div class="card-header bg-secondary text-white">Tahap 4 | Data Akun</div>
+                                <div class="card-header text-white" style="background-color: #4F6F52;">Tahap 4 | Data Akun</div>
                                 <div class="card-body">
                                     <div class="row" style="padding-bottom: 10px;">
                                         <div class="col-md-4">

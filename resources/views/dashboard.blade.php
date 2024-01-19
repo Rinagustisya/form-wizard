@@ -17,19 +17,19 @@
                         </div>
                         <div class="row">
                             <div class="col-4">Nama:</div>
-                            <div class="col-7"></div>
+                            <div class="col-7">{{ Auth::user()->nama }}</div>
                         </div>
                         <div class="row">
                             <div class="col-4">Username:</div>
-                            <div class="col-7"></div>
+                            <div class="col-7">{{ Auth::user()->username }}</div>
                         </div>
                         <div class="row">
                             <div class="col-4">Email:</div>
-                            <div class="col-7"></div>
+                            <div class="col-7">{{ Auth::user()->email }}</div>
                         </div>
                         <div class="row">
                             <div class="col-4">Role:</div>
-                            <div class="col-7"></div>
+                            <div class="col-7">{{ Auth::user()->role }}</div>
                         </div>
                     </div>
                 </div>
