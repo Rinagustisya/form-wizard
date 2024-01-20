@@ -1,6 +1,16 @@
 <div>
                     <form wire:submit.prevent="register">
 
+                    <!-- Indikator status langkah -->
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="flex items-center">
+                            <div class="{{ $step1Completed ? 'bg-green-500' : 'bg-gray-300' }} rounded-full h-6 w-6"></div>
+                            <div class="ml-4 {{ $step2Completed ? 'bg-green-500' : 'bg-gray-300' }} rounded-full h-6 w-6"></div>
+                            <div class="ml-4 {{ $step3Completed ? 'bg-green-500' : 'bg-gray-300' }} rounded-full h-6 w-6"></div>
+                            <div class="ml-4 {{ $step4Completed ? 'bg-green-500' : 'bg-gray-300' }} rounded-full h-6 w-6"></div>
+                        </div>
+                    </div>
+
                     @if ($currentStep == 1)
                     <!-- Step 1 -->
                         <div class="step-one">

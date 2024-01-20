@@ -38,6 +38,11 @@ class MultiStepForm extends Component
     public $totalSteps = 4;
     public $currentStep = 1;
 
+    public $step1Completed = false;
+    public $step2Completed = false;
+    public $step3Completed = false;
+    public $step4Completed = false;
+
     public function mount() {
         $this->currentStep= 1;
     }
@@ -63,9 +68,29 @@ class MultiStepForm extends Component
     public function increaseStep(){
         $this->resetErrorBag();
         $this->validateData();
+        $this->updateStepStatus();
         $this->currentStep++;
         if($this->currentStep > $this->totalSteps){
             $this->currentStep = $this->totalSteps;
+        }
+    }
+    
+    public function updateStepStatus() {
+        switch ($this->currentStep) {
+            case 1:
+                $this->step1Completed = true;
+                break;
+            case 2:
+                $this->step2Completed = true;
+                break;
+            case 3:
+                $this->step3Completed = true;
+                break;
+            case 4:
+                $this->step4Completed = true;
+                break;
+            default:
+                break;
         }
     }
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Alert;
 class LoginController extends Controller
 {
     public function __construct()
@@ -60,6 +60,7 @@ class LoginController extends Controller
                 default:
                     return redirect()->route('dashboard');
             }
+
         }
 
         return back()->withErrors([
