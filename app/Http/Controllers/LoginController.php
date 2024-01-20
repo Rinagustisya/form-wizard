@@ -23,7 +23,7 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::guard('admin')->logout();
-        return redirect()->route('admin.login');
+        return redirect()->route('form');
     }
     /**
      * Show the form for creating a new resource.
@@ -43,10 +43,23 @@ class LoginController extends Controller
             'password'  => 'required'
         ]);
 
-        if(Auth::guard('admin')->attempt($credentials, $request->remember))
-        {
-            $request->session()->regenerate();
-            return redirect()->intended(config('admin.path'));
+        $credentials = $request->only('username', 'password');
+
+        if (Auth::guard('admin')->attempt($credentials)) {
+            $user = Auth::guard('admin')->user();
+            $role = $user->role;
+
+            switch ($role) {
+                case 'admin':
+                    return redirect()->route('admin.monitoring');
+                    break;
+                case 'pengelola':
+                    return redirect()->route('pengelola.monitoring');
+                    break;
+                // Add more cases for other roles if needed
+                default:
+                    return redirect()->route('dashboard');
+            }
         }
 
         return back()->withErrors([

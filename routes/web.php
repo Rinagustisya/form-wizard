@@ -29,8 +29,8 @@ Route::group([
     Route::post('/login', [LoginController::class, 'store'])->name('login.perform');
     
     Route::group(['middleware' =>'auth:admin'], function(){
-        Route::post('logout', [LoginController::class, 'logout'])->name('admin.logout');
         Route::view('/dashboard', 'dashboard')->name('dashboard');
+        Route::post('logout', [LoginController::class, 'logout'])->name('admin.logout');
 
         Route::group(['middleware' =>['can:role,"pengelola"']], function(){
             Route::get('/Pengelola/Monitoring', [PengelolaController::class, 'index'])->name('pengelola.monitoring');

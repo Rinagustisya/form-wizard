@@ -19,7 +19,7 @@
           <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item">
             <i class="fas fa-sign-out-alt mr-2"></i> Logout
           </a>
-          <form action="" id="logout-form" method="post">
+          <form action="{{ route('admin.logout') }}" id="logout-form" method="post">
               @csrf
           </form>
         </div>
