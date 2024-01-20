@@ -30,8 +30,15 @@
         .form-card {
             padding-top: 4rem;
         }
+        .login-btn-container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+    }
         .login-btn a {
         padding: 10px 20px;
+        margin-right: 20px;
         background-color: #555843; /* Warna background button, bisa disesuaikan */
         color: #fff; /* Warna teks button */
         text-decoration: none;
@@ -50,8 +57,10 @@
 <body>
     <!-- navbar disini -->
     <div class="navbar">
+        <div class="login-btn-container">
         <div class="login-btn">
             <a href="{{ route('admin.login') }}">Login</a>
+            </div>
         </div>
     </div>
 
